@@ -1,0 +1,36 @@
+#!/bin/bash
+
+if [ ! -d nginx-1.14.2 ];then
+    wget http://nginx.org/download/nginx-1.14.2.tar.gz
+    tar xzf nginx-1.14.2.tar.gz
+fi
+
+if [ ! -d echo-nginx-module ];then
+    git clone https://github.com/openresty/echo-nginx-module.git
+fi
+
+if [ ! -d headers-more-nginx-module ];then
+    git clone https://github.com/openresty/headers-more-nginx-module.git
+fi
+
+if [ ! -d nginx-toolkit-module ];then
+    git clone https://github.com/AlexWoo/nginx-toolkit-module.git
+fi
+
+if [ ! -d nginx-multiport-module ];then
+    git clone https://github.com/AlexWoo/nginx-multiport-module.git
+fi
+
+if [ ! -d nginx-client-module ];then
+    git clone https://github.com/AlexWoo/nginx-client-module.git
+fi
+
+if [ ! -d nginx-rtmp-module ];then
+    git clone https://github.com/AlexWoo/nginx-rtmp-module.git
+fi
+
+cd nginx-1.14.2
+./configure --with-debug --add-module=../echo-nginx-module --add-module=../headers-more-nginx-module --add-module=../nginx-toolkit-module --add-module=../nginx-multiport-module --add-module=../nginx-client-module --add-module=../nginx-rtmp-module
+make && make install
+
+echo "alias valngx=\"valgrind --trace-children=yes --log-file=memcheck.log --tool=memcheck --vgdb=yes /usr/local/nginx/sbin/nginx\"" >> ~/.bashrc
