@@ -206,6 +206,13 @@ static ngx_command_t  ngx_rtmp_core_commands[] = {
       NGX_RTMP_SRV_CONF_OFFSET,
       offsetof(ngx_rtmp_core_srv_conf_t, buflen),
       NULL },
+    
+    { ngx_string("serverid"),
+      NGX_RTMP_SRV_CONF | NGX_CONF_TAKE1,
+      ngx_conf_set_str_slot,
+      NGX_RTMP_SRV_CONF_OFFSET,
+      offsetof(ngx_rtmp_core_srv_conf_t, serverid),
+      NULL },
 
       ngx_null_command
 };
