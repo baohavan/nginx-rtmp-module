@@ -375,7 +375,6 @@ ngx_rtmp_core_merge_srv_conf(ngx_conf_t *cf, void *parent, void *child)
     ngx_conf_merge_value(conf->publish_time_fix, prev->publish_time_fix, 1);
     ngx_conf_merge_msec_value(conf->buflen, prev->buflen, 1000);
     ngx_conf_merge_value(conf->busy, prev->busy, 0);
-    ngx_conf_merge_str_value(conf->serverid, prev->serverid, "default");
 
     if (prev->pool == NULL) {
         prev->pool = ngx_create_pool(4096, &cf->cycle->new_log);
