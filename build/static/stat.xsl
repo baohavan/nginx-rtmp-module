@@ -221,7 +221,6 @@
                         <th>Flash version</th>
                         <th>Page URL</th>
                         <th>SWF URL</th>
-                        <th>TC URL</th>
                         <th>PArgs</th>
                         <th>Dropped</th>
                         <th>Timestamp</th>
@@ -331,7 +330,6 @@
                 </a>
             </td>
             <td><xsl:value-of select="swfurl"/></td>
-            <td><xsl:value-of select="tcurl"/></td>
             <td><xsl:value-of select="pargs"/></td>
             <td><xsl:value-of select="dropped"/></td>
             <td><xsl:value-of select="timestamp"/></td>
