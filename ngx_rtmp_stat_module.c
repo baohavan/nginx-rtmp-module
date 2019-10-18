@@ -364,6 +364,18 @@ ngx_rtmp_stat_client(ngx_http_request_t *r, ngx_chain_t ***lll,
         NGX_RTMP_STAT_ES(&s->swf_url);
         NGX_RTMP_STAT_L("</swfurl>");
     }
+
+    if (s->tc_url.len) {
+        NGX_RTMP_STAT_L("<tcurl>");
+        NGX_RTMP_STAT_ES(&s->tc_url);
+        NGX_RTMP_STAT_L("</tcurl>");
+    }
+
+    if (s->pargs.len) {
+        NGX_RTMP_STAT_L("<pargs>");
+        NGX_RTMP_STAT_ES(&s->pargs);
+        NGX_RTMP_STAT_L("</pargs>");
+    }
 }
 
 
